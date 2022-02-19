@@ -1,36 +1,24 @@
 const express = require ('express');
+const cors = require ('cors');
 
 class Server {
     constructor(){
         this.app = express()
+
+        this.app.use(cors());
+
+        this.app.use(express.json());
+
+        this.app.use(express.static('public'));
         this.routes();
     }
 
     routes(){
-        this.app.get('/precios',(req, res)=> res.send('GET Endpoint para Precios'))
-        this.app.post('/precios',(req, res)=> res.send('POST Endpoint para Precios'))
-        this.app.put('/precios',(req, res)=> res.send('PUT Endpoint para Precios'))
-        this.app.delete('/precios',(req, res)=> res.send('DELETE Endpoint para Precios'))
-
-        this.app.get('/paquete',(req, res)=> res.send('GET Endpoint para Precios'))
-        this.app.post('/paquete',(req, res)=> res.send('POST Endpoint para Precios'))
-        this.app.put('/paquete',(req, res)=> res.send('PUT Endpoint para Precios'))
-        this.app.delete('/paquete',(req, res)=> res.send('DELETE Endpoint para Precios'))
-
-        this.app.get('/envio',(req, res)=> res.send('GET Endpoint para Precios'))
-        this.app.post('/envio',(req, res)=> res.send('POST Endpoint para Precios'))
-        this.app.put('/envio',(req, res)=> res.send('PUT Endpoint para Precios'))
-        this.app.delete('/envio',(req, res)=> res.send('DELETE Endpoint para Precios'))
-
-        this.app.get('/detallesEnvios',(req, res)=> res.send('GET Endpoint para Precios'))
-        this.app.post('/detallesEnvios',(req, res)=> res.send('POST Endpoint para Precios'))
-        this.app.put('/detallesEnvios',(req, res)=> res.send('PUT Endpoint para Precios'))
-        this.app.delete('/detallesEnvios',(req, res)=> res.send('DELETE Endpoint para Precios'))
-
-        this.app.get('/seguimiento',(req, res)=> res.send('GET Endpoint para Precios'))
-        this.app.post('/seguimiento',(req, res)=> res.send('POST Endpoint para Precios'))
-        this.app.put('/seguimiento',(req, res)=> res.send('PUT Endpoint para Precios'))
-        this.app.delete('/seguimiento',(req, res)=> res.send('DELETE Endpoint para Precios'))
+        this.app.use('/precios',require('../routes/precios'))
+        this.app.use('/paquete',require('../routes/paquete'))
+        this.app.use('/envio',require('../routes/envio'))
+        this.app.use('/detallesEnvios',require('../routes/detallesEnvios'))
+        this.app.use('/seguimiento',require('../routes/seguimiento'))
         }
 
     listen(){
