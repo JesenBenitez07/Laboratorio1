@@ -24,7 +24,9 @@ const putEnvios = (req = request, res = response) =>{
     lista.cargarTareasFromArray(datosJSON)
     
     const datos = lista.listadoArr.map(item =>
-          item.id == req.params.id ? {"id":item.id, ...req.body}: item
+          item.id == req.params.id
+          ? {"id":item.id, ...req.body}
+          : item
         );
     guardarDB(datos,'envio')
     res.send('Registro Actualizado')

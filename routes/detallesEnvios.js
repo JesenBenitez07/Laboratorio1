@@ -4,7 +4,7 @@ const {
         postdetallesEnvios,
         putdetallesEnvios,
         deletedetallesEnvios
-} = require("../controles/detallesEnvios");
+} = require("../controllers/detallesEnvios");
 
 const router = Router();
 

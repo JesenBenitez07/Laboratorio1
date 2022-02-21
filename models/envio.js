@@ -2,7 +2,7 @@ const { v4: uuidv4 } = require('uuid');
 
 class Envios {
     constructor(codigo, fecha, tracking, origen, destino, emisor, destinatario) {
-        this.id = uuidv4()
+        this.id = uuidv4()  
         this.codigo = codigo
         this.fecha = fecha
         this.tracking = tracking
