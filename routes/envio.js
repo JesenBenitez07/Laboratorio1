@@ -1,4 +1,4 @@
-const { Route } = require('express');
+const { Router } = require('express');
 const { 
         getenvio,
         postenvio,
@@ -6,11 +6,11 @@ const {
         deleteenvio
 } = require("../controllers/envio");
 
-const route = Route();
+const router = Router();
 
-        route.get('/', getenvio)
-        route.post('/',postenvio)
-        route.put('/:id',putenvio)
-        route.delete('/:id',deleteenvio)
+        router.get('/', getenvio)
+        router.post('/',postenvio)
+        router.put('/:id',putenvio)
+        router.delete('/:id',deleteenvio) 
 
-module.exports = route
+module.exports = router
