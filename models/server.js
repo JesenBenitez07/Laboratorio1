@@ -15,10 +15,10 @@ class Server {
 
     routes(){
         this.app.use('/precios',require('../routes/precios'))
-       this.app.use('/paquete',require('../routes/paquete'))
-        /*this.app.use('/envio',require('../routes/envio'))
-           this.app.use('/detallesEnvios',require('../routes/detallesEnvios'))
-        this.app.use('/seguimiento',require('../routes/seguimiento'))*/
+        this.app.use('/paquete',require('../routes/paquete'))
+        this.app.use('/envio',require('../routes/envio'))
+        this.app.use('/detallesEnvios',require('../routes/detallesEnvios'))
+        this.app.use('/seguimiento',require('../routes/seguimiento'))
        }
 
     listen(){
